@@ -1,0 +1,222 @@
+{
+  "personal": {
+    "name": "Sathya Balan K",
+    "username": "Sathyabalan6",
+    "title": "Full-Stack & AI Systems Engineer",
+    "tagline": "Full-Stack & AI Systems Engineer | React, FastAPI, MCP | AI Tooling & Deep RL 🚀",
+    "bio": "Master of Computer Applications candidate at College of Engineering, Guindy, Anna University. Passionate about building resilient web architectures, autonomous agent tooling, Model Context Protocol (MCP) servers, client production websites, and open-source systems.",
+    "email": "",
+    "phone": "",
+    "location": "India",
+    "avatar": "https://avatars.githubusercontent.com/u/130858878?v=4",
+    "social": {
+      "github": "https://github.com/Sathyabalan6",
+      "linkedin": "https://linkedin.com/in/",
+      "leetcode": "https://leetcode.com/u/Sathyabalan6/"
+    },
+    "stats": {
+      "publicRepos": 26,
+      "openSourcePRs": 2,
+      "featuredProjects": 7
+    }
+  },
+  "freelanceAndClientWork": [
+    {
+      "id": "spacecraft-tech",
+      "title": "Space Craft & Tech Solution",
+      "client": "Space Craft & Tech Solution (Chennai, India)",
+      "liveUrl": "https://www.spacecrafttech.in/projects",
+      "mainSiteUrl": "https://www.spacecrafttech.in",
+      "role": "Freelance Frontend & Web Developer",
+      "category": "Client Production Website",
+      "tagline": "Commercial architecture & interior fit-out portfolio platform",
+      "description": "Designed and delivered the official website and signature portfolio for Space Craft & Tech Solution, an interior architecture firm with 500+ completed projects across corporate, industrial, hospitality, and retail sectors.",
+      "techStack": ["HTML5", "CSS3 Custom Properties", "JavaScript (ES6+)", "Responsive Bento Grid", "WhatsApp API Integration"],
+      "highlights": [
+        "Architected an interactive portfolio filter system spanning Corporate, Industrial, Hospitality, and Retail sectors.",
+        "Built custom bento-grid layout with staggered aspect ratios, smooth image zoom transitions, and gradient overlay reveals.",
+        "Engineered zero-dependency responsive navigation, mobile drawer menu, scroll progress indicator, and quick-contact floating widgets (WhatsApp & Phone).",
+        "Styled with bespoke typography pairing (Syne, DM Sans, DM Mono) with dark architectural theme tokens."
+      ]
+    }
+  ],
+  "openSourceContributions": [
+    {
+      "repo": "adarshashokbaghel-code/mentr",
+      "repoUrl": "https://github.com/adarshashokbaghel-code/mentr",
+      "prNumber": 48,
+      "prUrl": "https://github.com/adarshashokbaghel-code/mentr/pull/48",
+      "title": "feat: add App Router loading.tsx, error.tsx, not-found.tsx and route skeletons",
+      "status": "merged",
+      "date": "Sep 2026",
+      "metrics": "+465 / -22 lines across 7 files",
+      "description": "Implemented robust route-level resilient UX in Next.js App Router. Created branded 404 page, global error boundary with retry mechanisms, instant streaming skeletons matching Mentr's layout, and contrast-tuned UI skeleton tokens.",
+      "techStack": ["Next.js", "TypeScript", "Tailwind CSS", "React"]
+    },
+    {
+      "repo": "keinsaasforever/better-chatbot",
+      "repoUrl": "https://github.com/keinsaasforever/better-chatbot",
+      "prNumber": 398,
+      "prUrl": "https://github.com/keinsaasforever/better-chatbot/pull/398",
+      "title": "feat(i18n): replace hardcoded strings with i18n keys (#340)",
+      "status": "open",
+      "date": "Sep 2026",
+      "metrics": "+285 / -127 lines across 25 files",
+      "description": "Contributed to Navigator (open-source AI workspace for agents and MCP workflows). Replaced hardcoded strings across 25 components with internationalization translation keys powered by next-intl.",
+      "techStack": ["Next.js", "next-intl", "TypeScript", "AI Workspaces"]
+    }
+  ],
+  "agentToolingAndAI": [
+    {
+      "name": "production-agent-skills",
+      "title": "Production Agent Skills Suite",
+      "repoUrl": "https://github.com/Sathyabalan6/production-agent-skills",
+      "category": "AI Agents & Autonomous Coding",
+      "description": "High-reliability, deterministic Agent Skills conforming to the Agent Skills Open Standard for Google Antigravity, Claude Code, Cursor, and Codex. Eliminates iteration decay and hardens web apps with formal math, accessibility gates, and security rules.",
+      "skillsIncluded": [
+        "website-data-protection (OWASP A01, CSP, supply chain)",
+        "ai-website-polish (WCAG 2.2 AA, INP tuning)",
+        "quantitative-ux-engine (Hick-Hyman entropy, Fitts's Law)",
+        "ux-laws-for-ai-design (Cognitive ergonomics)",
+        "frontend-math-precision (Linear interpolation, scroll animations)"
+      ],
+      "techStack": ["Python", "Shell / Bash", "Markdown", "Agent Protocols", "CI/CD"]
+    },
+    {
+      "name": "mcp_server",
+      "title": "Custom Model Context Protocol (MCP) Server",
+      "repoUrl": "https://github.com/Sathyabalan6/mcp_server",
+      "category": "Agent Protocols & Tooling",
+      "description": "Custom Model Context Protocol (MCP) server implementation for connecting AI agents with local workflows, specialized developer tools, and data sources.",
+      "techStack": ["Python", "MCP Protocol", "Node.js", "APIs"]
+    },
+    {
+      "name": "deeprl_signal_control",
+      "title": "Deep RL Traffic Signal Control",
+      "repoUrl": "https://github.com/Sathyabalan6/deeprl_signal_control",
+      "category": "Machine Learning / Deep RL",
+      "description": "Intelligent traffic signal control powered by Deep Reinforcement Learning algorithms implemented in PyTorch, optimizing vehicle queue lengths and flow latency.",
+      "techStack": ["Python", "PyTorch", "Reinforcement Learning", "Simulation"]
+    }
+  ],
+  "featuredProjects": [
+    {
+      "id": "laptop-remote",
+      "title": "Laptop Remote",
+      "repoUrl": "https://github.com/Sathyabalan6/laptop-remote",
+      "tagline": "Turn your phone into a low-latency laptop controller over Wi-Fi",
+      "description": "Control your laptop from your mobile browser over local Wi-Fi with zero client install needed. Features a multi-touch trackpad, remote keyboard, media controls, and a real-time presentation laser pointer overlay across Windows, macOS, and Linux (X11 & Wayland).",
+      "techStack": ["Python", "Flask", "Flask-SocketIO", "JavaScript", "PWA", "X11 / Wayland", "HTML5 Canvas"],
+      "highlights": [
+        "Real-time WebSocket communication for ultra-low latency mouse tracking and keystrokes.",
+        "Interactive laser pointer overlay designed for presentation slides.",
+        "Mobile-first PWA interface with responsive touch gestures and native vibration feedback."
+      ]
+    },
+    {
+      "id": "automated-twitter-poster",
+      "title": "Automated Twitter Content Poster",
+      "repoUrl": "https://github.com/Sathyabalan6/twitter-automation",
+      "tagline": "Autonomous news synthesis & social publisher with Gemini AI",
+      "description": "Automated n8n workflow pipeline that ingests breaking news categories via NewsAPI every 4 hours, synthesizes human-like concise posts using Google Gemini AI, and auto-publishes to Twitter/X with fallback logging to Google Sheets.",
+      "techStack": ["n8n", "NewsAPI", "Gemini API", "Twitter API", "Google Sheets API", "JavaScript"],
+      "highlights": [
+        "Autonomous scheduled pipeline rotating across tech, business, and politics news categories.",
+        "Integrated Gemini AI for tone calibration (200–260 chars) with fallback recovery.",
+        "Engineered custom JS execution nodes for prompt engineering and JSON validation."
+      ]
+    },
+    {
+      "id": "anna-university-estate-office",
+      "title": "Anna University Estate Office Portal",
+      "repoUrl": "",
+      "tagline": "Institutional estate & document management web application",
+      "description": "Full-stack institutional web app built to replace a legacy PHP system for Anna University's Estate Office. Implemented dynamic document archiving (PDFs), property directories, and real-time database management.",
+      "techStack": ["React.js", "Node.js", "Express.js", "MySQL", "CSS3"],
+      "highlights": [
+        "Replaced legacy server-rendered PHP site with a modern responsive React SPA.",
+        "Integrated PDF document uploading, metadata indexing, and viewing modules.",
+        "Built responsive administrative dashboards with dynamic form handling and MySQL transactions."
+      ]
+    },
+    {
+      "id": "memegenie",
+      "title": "MemeGenie – AI-Powered Meme Generator",
+      "repoUrl": "",
+      "tagline": "Serverless event-driven image processing on AWS",
+      "description": "Serverless meme generation and distribution platform running on AWS Lambda, S3, and API Gateway for scalable and automated image processing with presigned URLs and IAM access control.",
+      "techStack": ["AWS Lambda", "API Gateway", "AWS S3", "Python", "PowerShell", "JSON"],
+      "highlights": [
+        "Multi-bucket S3 cloud storage architecture separating input assets, web host, and processed memes.",
+        "Dynamic serverless Python Lambda function computing text bounding boxes and rendering overlays.",
+        "Generated secure 1-hour presigned retrieval URLs for low cloud cost and strict security."
+      ]
+    },
+    {
+      "id": "session-export",
+      "title": "Session Export (Chrome MV3 Extension)",
+      "repoUrl": "https://github.com/Sathyabalan6/session_export",
+      "tagline": "Browser session cloning and incognito bridge",
+      "description": "Chrome Extension built with Manifest V3 to clone and migrate active browser cookies and sessions into incognito windows across multiple web domains seamlessly.",
+      "techStack": ["JavaScript", "Chrome Extensions API (MV3)", "HTML/CSS"]
+    },
+    {
+      "id": "file-system",
+      "title": "Full-Stack File Management & Search System",
+      "repoUrl": "https://github.com/Sathyabalan6/file_system",
+      "tagline": "FastAPI + React document indexing engine",
+      "description": "Full-stack file management, indexing, and document search system with high-speed query endpoints and responsive React frontend.",
+      "techStack": ["Python", "FastAPI", "React", "TypeScript", "REST APIs"]
+    }
+  ],
+  "skills": {
+    "languages": ["Java", "JavaScript (ES6+)", "TypeScript", "Python"],
+    "frontend": ["React.js", "Next.js", "Tailwind CSS", "HTML5 / CSS3", "PWA", "Responsive UI"],
+    "backend": ["Node.js", "Express.js", "FastAPI", "RESTful APIs", "Socket.IO"],
+    "databases": ["MongoDB", "PostgreSQL", "MySQL"],
+    "cloudDevOps": ["AWS (Lambda, S3, API Gateway)", "Azure", "Docker", "Git / GitHub Actions"],
+    "aiAndProtocols": ["Model Context Protocol (MCP)", "Google Gemini API", "PyTorch / Deep RL", "n8n Automation", "Agent Skills"]
+  },
+  "education": [
+    {
+      "institution": "College of Engineering, Guindy (Anna University)",
+      "degree": "Master of Computer Applications (MCA)",
+      "period": "Aug 2024 – May 2026",
+      "grade": "CGPA: 7.0"
+    },
+    {
+      "institution": "St. Joseph’s College, Trichy",
+      "degree": "Bachelor of Science in Computer Science (B.Sc CS)",
+      "period": "Jul 2021 – May 2024",
+      "grade": "CGPA: 7.51"
+    },
+    {
+      "institution": "Guru Gnana Sambandar Higher Secondary School, Mayiladuthurai",
+      "degree": "Higher Secondary School",
+      "period": "2020 – 2021",
+      "grade": "87%"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Microsoft Azure Fundamentals (AZ-900)",
+      "issuer": "LinkedIn Learning",
+      "period": "Sep – Oct 2023",
+      "modules": [
+        "Cloud Concepts",
+        "Azure Architecture and Services",
+        "Azure Management and Governance"
+      ]
+    },
+    {
+      "title": "Automating Administration with Windows PowerShell",
+      "issuer": "NASBA",
+      "link": ""
+    },
+    {
+      "title": "Foundations of Project Management",
+      "issuer": "Google",
+      "link": ""
+    }
+  ]
+}

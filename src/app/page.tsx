@@ -1,39 +1,16 @@
 import React from "react";
-import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
-import { ClientSpotlight } from "@/components/ClientSpotlight";
-import { OpenSource } from "@/components/OpenSource";
-import { ProjectsBento } from "@/components/ProjectsBento";
-import { SkillsMatrix } from "@/components/SkillsMatrix";
-import { Timeline } from "@/components/Timeline";
-import { ContactFooter } from "@/components/ContactFooter";
+import { TerminalApp } from "@/components/TerminalApp";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#09090b] text-[#fafafa] overflow-hidden">
-      {/* Floating Header */}
-      <Navbar />
+    <main className="relative min-h-screen bg-[#16161e] text-[#c0caf5] terminal-grid flex flex-col justify-center py-4 sm:py-8">
+      {/* Background Radial Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-gradient-to-b from-[#7aa2f7]/10 via-[#bb9af7]/5 to-transparent blur-3xl pointer-events-none" />
 
-      {/* Hero Section */}
-      <Hero />
-
-      {/* Commercial Client Spotlight (SpaceCraft Tech) */}
-      <ClientSpotlight />
-
-      {/* Open Source Contributions (Mentr & Better Chatbot PRs) */}
-      <OpenSource />
-
-      {/* Bento Grid: Agent Skills, MCP Server, Laptop Remote & Systems */}
-      <ProjectsBento />
-
-      {/* Skills Matrix */}
-      <SkillsMatrix />
-
-      {/* Education & Verified Credentials */}
-      <Timeline />
-
-      {/* Contact & Terminal Footer */}
-      <ContactFooter />
+      {/* Main Terminal Window Frame */}
+      <div className="relative z-10 w-full">
+        <TerminalApp />
+      </div>
     </main>
   );
 }

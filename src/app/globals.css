@@ -4,51 +4,90 @@
 
 @layer base {
   :root {
-    --background: #09090b;
-    --foreground: #fafafa;
-    --card: #09090b;
-    --card-foreground: #fafafa;
-    --border: #27272a;
-    --input: #27272a;
-    --ring: #f43f5e;
-    --primary: #fafafa;
-    --primary-foreground: #09090b;
-    --secondary: #18181b;
-    --secondary-foreground: #fafafa;
-    --muted: #18181b;
-    --muted-foreground: #a1a1aa;
-    --accent: #27272a;
-    --accent-foreground: #fafafa;
-    --radius: 0.75rem;
+    /* Tokyo Night / Catppuccin Terminal Design System */
+    --canvas-bg: #16161e;
+    --terminal-bg: #1a1b26;
+    --pane-bg: #1f2335;
+    --pane-hover: #24283b;
+    --border-subtle: #292e42;
+    --border-active: #3b4261;
+    
+    --fg-primary: #c0caf5;
+    --fg-secondary: #9aa5ce;
+    --fg-muted: #565f89;
+
+    --tokyo-cyan: #7dcfff;
+    --tokyo-blue: #7aa2f7;
+    --tokyo-purple: #bb9af7;
+    --tokyo-green: #73daca;
+    --tokyo-amber: #e0af68;
+    --tokyo-red: #f7768e;
+    --tokyo-orange: #ff9e64;
+
+    --background: var(--canvas-bg);
+    --foreground: var(--fg-primary);
+    --card: var(--pane-bg);
+    --card-foreground: var(--fg-primary);
+    --border: var(--border-subtle);
+    --primary: var(--tokyo-cyan);
+    --primary-foreground: #16161e;
+    --radius: 0.625rem;
   }
 
   * {
-    @apply border-zinc-800;
+    @apply border-[#292e42];
   }
 
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-[#09090b] text-[#fafafa] antialiased selection:bg-rose-500/20 selection:text-rose-200;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: var(--canvas-bg);
+    color: var(--fg-primary);
+    font-family: var(--font-mono), monospace, system-ui;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    selection-background-color: #364a82;
+    selection-color: #c0caf5;
+  }
+
+  ::selection {
+    background: #364a82;
+    color: #c0caf5;
   }
 }
 
-/* Custom glow effects */
-.glow-text {
-  text-shadow: 0 0 35px rgba(244, 63, 94, 0.45);
-}
-
-.glow-box {
-  box-shadow: 0 0 50px -10px rgba(244, 63, 94, 0.15);
-}
-
-/* Subtle border beam keyframe */
-@keyframes border-beam {
-  100% {
-    offset-distance: 100%;
+/* Terminal Cursor Blink */
+@keyframes terminal-blink {
+  0%, 49% {
+    opacity: 1;
   }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-cursor {
+  animation: terminal-blink 1s infinite;
+}
+
+/* Subtle CRT grid pattern */
+.terminal-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(41, 46, 66, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(41, 46, 66, 0.4) 1px, transparent 1px);
+}
+
+/* Glow utility */
+.tokyo-glow {
+  text-shadow: 0 0 20px rgba(125, 207, 255, 0.35);
+}
+
+.tokyo-glow-purple {
+  text-shadow: 0 0 20px rgba(187, 154, 247, 0.35);
 }

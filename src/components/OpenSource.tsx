@@ -1,115 +1,216 @@
 "use client";
 
-import React from "react";
-import { portfolioData } from "@/data/portfolioData";
-import { Badge } from "./ui/badge";
-import { GitPullRequest, GitMerge, ExternalLink, CheckCircle2, Terminal, Code, Sparkles } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
-export const OpenSource = () => {
-  const { openSourceContributions } = portfolioData;
+const prs = [
+  {
+    repo: "adarshashokbaghel-code/mentr",
+    repoUrl: "https://github.com/adarshashokbaghel-code/mentr",
+    pr: "#48",
+    prUrl: "https://github.com/adarshashokbaghel-code/mentr/pull/48",
+    title: "feat: add App Router loading.tsx, error.tsx, not-found.tsx and route skeletons",
+    status: "merged" as const,
+    date: "Sep 2026",
+    diff: "+465 / −22",
+    desc: "Implemented route-level resilient UX in Next.js App Router — branded 404, global error boundary with retry, and instant streaming skeletons.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    repo: "keinsaasforever/better-chatbot",
+    repoUrl: "https://github.com/keinsaasforever/better-chatbot",
+    pr: "#398",
+    prUrl: "https://github.com/keinsaasforever/better-chatbot/pull/398",
+    title: "feat(i18n): replace hardcoded strings with i18n keys (#340)",
+    status: "open" as const,
+    date: "Sep 2026",
+    diff: "+285 / −127",
+    desc: "Replaced hardcoded strings across 25 components with internationalization translation keys powered by next-intl in an open-source AI workspace.",
+    tech: ["Next.js", "next-intl", "TypeScript"],
+  },
+];
+
+function useInView(ref: React.RefObject<Element | null>) {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    if (!ref.current) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, [ref]);
+  return visible;
+}
+
+export function OpenSource() {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const visible = useInView(titleRef as React.RefObject<Element>);
 
   return (
-    <section id="opensource" className="py-24 px-4 max-w-6xl mx-auto">
-      {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-        <div>
-          <div className="inline-flex items-center gap-1.5 text-xs font-mono text-purple-400 uppercase tracking-widest mb-2">
-            <GitPullRequest className="w-3.5 h-3.5" />
-            <span>Open Source Ecosystem</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Production Pull Requests
-          </h2>
-        </div>
-        <p className="text-sm text-zinc-400 max-w-md">
-          Direct contributions to modern open-source web ecosystems and AI agent workspaces.
-        </p>
-      </div>
+    <section
+      id="oss"
+      style={{
+        maxWidth: 900,
+        margin: "0 auto",
+        padding: "80px 24px",
+        borderTop: "1px solid var(--border)",
+      }}
+    >
+      {/* Label */}
+      <p
+        ref={titleRef}
+        className={visible ? "fade-up delay-0" : ""}
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: 11,
+          color: "var(--muted)",
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          marginBottom: 10,
+        }}
+      >
+        Open Source
+      </p>
+      <h2
+        className={visible ? "fade-up delay-1" : ""}
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: "clamp(22px, 3vw, 30px)",
+          fontWeight: 700,
+          color: "var(--text)",
+          letterSpacing: "-0.02em",
+          marginBottom: 40,
+        }}
+      >
+        Contributions
+      </h2>
 
-      {/* Grid of Contributions */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {openSourceContributions.map((pr) => {
-          const isMerged = pr.status === "merged";
-
+      {/* PR list */}
+      <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+        {prs.map((pr, i) => {
+          const cardRef = useRef<HTMLDivElement>(null);
+          const cardVisible = useInView(cardRef as React.RefObject<Element>);
           return (
             <div
-              key={pr.prNumber}
-              className="relative rounded-2xl bg-zinc-950/80 border border-zinc-800/90 p-6 sm:p-7 flex flex-col justify-between hover:border-zinc-700 transition-all duration-300 group shadow-xl"
+              key={pr.pr}
+              ref={cardRef}
+              className={cardVisible ? `fade-up delay-${i}` : ""}
+              style={{
+                padding: "20px 22px",
+                border: "1px solid var(--border)",
+                borderRadius: 10,
+                background: "var(--surface)",
+              }}
             >
-              {/* Card Header */}
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    {isMerged ? (
-                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-purple-950/50 text-purple-300 border border-purple-500/30">
-                        <GitMerge className="w-3.5 h-3.5" />
-                        <span>Merged</span>
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-emerald-950/50 text-emerald-300 border border-emerald-500/30">
-                        <GitPullRequest className="w-3.5 h-3.5" />
-                        <span>Open / Active</span>
-                      </span>
-                    )}
-                    <span className="text-xs font-mono text-zinc-400">
-                      PR #{pr.prNumber}
-                    </span>
-                  </div>
-
-                  <span className="text-xs font-mono text-zinc-500">{pr.date}</span>
-                </div>
-
-                {/* Repo Name */}
+              {/* Top row */}
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  gap: 8,
+                  marginBottom: 10,
+                }}
+              >
                 <a
                   href={pr.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-mono text-rose-400 hover:underline mb-2"
+                  className="link-underline"
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 12,
+                    color: "var(--muted)",
+                  }}
                 >
-                  <span>{pr.repo}</span>
-                  <ExternalLink className="w-3 h-3" />
+                  {pr.repo}
                 </a>
-
-                {/* PR Title */}
-                <h3 className="text-lg font-bold text-white mb-3 group-hover:text-rose-100 transition-colors">
-                  {pr.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6">
-                  {pr.description}
-                </p>
+                <a
+                  href={pr.prUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pressable"
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 11,
+                    color: pr.status === "merged" ? "var(--purple)" : "var(--green)",
+                    border: `1px solid ${pr.status === "merged" ? "#bb9af733" : "#9ece6a33"}`,
+                    borderRadius: 4,
+                    padding: "2px 8px",
+                    textDecoration: "none",
+                  }}
+                >
+                  {pr.pr} · {pr.status}
+                </a>
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 11,
+                    color: "var(--muted)",
+                    marginLeft: "auto",
+                  }}
+                >
+                  {pr.date}
+                </span>
               </div>
 
-              {/* Card Footer: Metrics & Tech Stack */}
-              <div>
-                <div className="flex items-center justify-between py-3 border-t border-zinc-800/80 mb-4 text-xs font-mono">
-                  <span className="text-zinc-500">Diff Impact</span>
-                  <span className="text-emerald-400 font-medium">{pr.metrics}</span>
-                </div>
+              {/* Title */}
+              <p
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 13,
+                  color: "var(--text)",
+                  margin: "0 0 8px",
+                  lineHeight: 1.4,
+                }}
+              >
+                {pr.title}
+              </p>
 
-                <div className="flex items-center justify-between">
-                  <div className="flex flex-wrap gap-1.5">
-                    {pr.techStack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-900 border border-zinc-800 text-zinc-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+              {/* Description */}
+              <p
+                style={{
+                  fontSize: 13,
+                  color: "var(--dim)",
+                  margin: "0 0 14px",
+                  lineHeight: 1.5,
+                }}
+              >
+                {pr.desc}
+              </p>
 
-                  <a
-                    href={pr.prUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-xs font-mono text-zinc-200 border border-zinc-700/60 transition-colors"
+              {/* Bottom: diff stat + tags */}
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  gap: 8,
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 11,
+                    color: "var(--green)",
+                  }}
+                >
+                  {pr.diff}
+                </span>
+                <span style={{ color: "var(--border)" }}>·</span>
+                {pr.tech.map((t) => (
+                  <span
+                    key={t}
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: 11,
+                      color: "var(--muted)",
+                    }}
                   >
-                    <span>View PR</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
+                    {t}
+                  </span>
+                ))}
               </div>
             </div>
           );
@@ -117,4 +218,4 @@ export const OpenSource = () => {
       </div>
     </section>
   );
-};
+}

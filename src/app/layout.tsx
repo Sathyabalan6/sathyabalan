@@ -4,51 +4,39 @@ import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-inter",
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Sathya Balan K | Full-Stack & AI Systems Engineer",
+  title: "Sathya Balan K — Full-Stack & AI Engineer",
   description:
-    "Personal portfolio of Sathya Balan K — Master of Computer Applications student at CEG Anna University, full-stack engineer, AI systems builder, and open-source contributor.",
-  keywords: [
-    "Sathya Balan",
-    "Full-Stack Engineer",
-    "AI Systems",
-    "Model Context Protocol",
-    "MCP",
-    "React",
-    "Next.js",
-    "FastAPI",
-    "Anna University",
-    "SpaceCraft Tech",
-  ],
-  authors: [{ name: "Sathya Balan K" }],
-  creator: "Sathya Balan K",
+    "Portfolio of Sathya Balan K — Full-Stack & AI Systems Engineer. MCA candidate at Anna University (CEG). Building production web apps, AI tooling, and open-source systems.",
   openGraph: {
-    title: "Sathya Balan K | Full-Stack & AI Systems Engineer",
-    description:
-      "Full-stack web architectures, autonomous agent tooling (MCP), and production platforms.",
-    url: "https://github.com/Sathyabalan6",
-    siteName: "Sathya Balan Portfolio",
+    title: "Sathya Balan K",
+    description: "Full-Stack & AI Systems Engineer",
+    url: "https://sathyabalan6.github.io",
+    siteName: "sathyabalan",
+    locale: "en_US",
     type: "website",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="dark">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-[#09090b] text-[#fafafa] min-h-screen selection:bg-rose-500/20 selection:text-rose-200`}
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
       </body>

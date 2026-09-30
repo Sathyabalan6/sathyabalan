@@ -1,117 +1,141 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import { portfolioData } from "@/data/portfolioData";
-import { PerspectiveGrid } from "./ui/perspective-grid";
-import { BorderBeam } from "./ui/border-beam";
-import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
-import { ArrowDown, ExternalLink, GitPullRequest, Sparkles, Terminal, Code2, ShieldCheck } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "./icons";
 
-export const Hero = () => {
-  const { personal } = portfolioData;
+const facts = [
+  "MCA candidate · Anna University (CEG)",
+  "Building AI tooling, MCP servers & production web apps",
+  "Open source contributor · 26 public repos",
+];
 
+export function Hero() {
   return (
-    <section className="relative min-h-[92vh] pt-32 pb-20 flex flex-col items-center justify-center text-center px-4 overflow-hidden">
-      {/* Background Perspective Grid */}
-      <PerspectiveGrid />
+    <section
+      style={{
+        maxWidth: 900,
+        margin: "0 auto",
+        padding: "140px 24px 96px",
+      }}
+    >
+      {/* Label */}
+      <p
+        className="fade-up delay-0"
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: 12,
+          color: "var(--accent)",
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          marginBottom: 20,
+        }}
+      >
+        Full-Stack &amp; AI Systems Engineer
+      </p>
 
-      <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-        {/* Top Announcement Pill */}
-        <div className="mb-6 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs text-zinc-300 backdrop-blur-md shadow-lg">
-          <Sparkles className="w-3.5 h-3.5 text-rose-400" />
-          <span className="font-mono text-zinc-400">Master of Computer Applications</span>
-          <span className="text-zinc-600">•</span>
-          <span className="text-zinc-200 font-medium">CEG Anna University</span>
-        </div>
+      {/* Name */}
+      <h1
+        className="fade-up delay-1"
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: "clamp(36px, 6vw, 64px)",
+          fontWeight: 700,
+          color: "var(--text)",
+          letterSpacing: "-0.03em",
+          lineHeight: 1.1,
+          marginBottom: 32,
+        }}
+      >
+        Sathya Balan K
+      </h1>
 
-        {/* Main Heading */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.08]">
-          Full-Stack &amp;{" "}
-          <span className="bg-gradient-to-r from-rose-400 via-rose-500 to-amber-300 bg-clip-text text-transparent glow-text">
-            AI Systems
-          </span>{" "}
-          Engineer.
-        </h1>
+      {/* Facts */}
+      <ul
+        className="fade-up delay-2"
+        style={{
+          listStyle: "none",
+          padding: 0,
+          margin: "0 0 36px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 8,
+        }}
+      >
+        {facts.map((fact) => (
+          <li
+            key={fact}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              fontSize: 15,
+              color: "var(--dim)",
+            }}
+          >
+            <span
+              aria-hidden
+              style={{
+                width: 4,
+                height: 4,
+                borderRadius: "50%",
+                background: "var(--accent)",
+                flexShrink: 0,
+              }}
+            />
+            {fact}
+          </li>
+        ))}
+      </ul>
 
-        {/* Subheading / Bio */}
-        <p className="max-w-2xl text-base sm:text-lg text-zinc-400 mb-10 leading-relaxed font-normal">
-          Hi, I&apos;m <span className="text-zinc-100 font-semibold">{personal.name}</span>. I design
-          and engineer production web applications, autonomous agent workflows with the{" "}
-          <span className="text-rose-400 font-mono text-sm">Model Context Protocol (MCP)</span>, and
-          high-performance full-stack architectures.
-        </p>
-
-        {/* Primary Action Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-16">
-          <a href="#work">
-            <Button variant="glow" size="lg">
-              <span>View Client Project</span>
-              <ExternalLink className="w-4 h-4 ml-1.5" />
-            </Button>
-          </a>
-          <a href="#opensource">
-            <Button variant="secondary" size="lg">
-              <GitPullRequest className="w-4 h-4 mr-1 text-purple-400" />
-              <span>Open Source PRs</span>
-            </Button>
-          </a>
+      {/* Social links */}
+      <div
+        className="fade-up delay-3"
+        style={{ display: "flex", gap: 10, flexWrap: "wrap" }}
+      >
+        {[
+          {
+            href: "https://github.com/Sathyabalan6",
+            icon: <GithubIcon size={15} />,
+            label: "GitHub",
+          },
+          {
+            href: "https://linkedin.com/in/",
+            icon: <LinkedinIcon size={15} />,
+            label: "LinkedIn",
+          },
+        ].map((s) => (
           <a
-            href={personal.social.github}
+            key={s.label}
+            href={s.href}
             target="_blank"
             rel="noopener noreferrer"
+            className="pressable"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 7,
+              padding: "8px 16px",
+              border: "1px solid var(--border)",
+              borderRadius: 8,
+              fontSize: 13,
+              color: "var(--dim)",
+              textDecoration: "none",
+              background: "var(--surface)",
+              transition: "border-color 150ms ease, color 150ms ease",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = "var(--muted)";
+              (e.currentTarget as HTMLElement).style.color = "var(--text)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
+              (e.currentTarget as HTMLElement).style.color = "var(--dim)";
+            }}
           >
-            <Button variant="outline" size="lg">
-              <Terminal className="w-4 h-4 mr-1 text-zinc-400" />
-              <span>GitHub @{personal.username}</span>
-            </Button>
+            {s.icon}
+            {s.label}
           </a>
-        </div>
-
-        {/* Metrics & Highlights Grid with BorderBeam */}
-        <div className="relative w-full max-w-4xl p-1 rounded-2xl bg-zinc-950/70 border border-zinc-800/80 backdrop-blur-xl shadow-2xl overflow-hidden">
-          <BorderBeam size={280} duration={14} colorFrom="#f43f5e" colorTo="#38bdf8" />
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-5 sm:p-6 text-left">
-            <div className="p-3 rounded-xl bg-zinc-900/40 border border-zinc-800/60">
-              <div className="text-2xl sm:text-3xl font-bold font-mono text-white mb-1">
-                500+
-              </div>
-              <div className="text-xs text-zinc-400">
-                Projects Featured on Client Website
-              </div>
-            </div>
-
-            <div className="p-3 rounded-xl bg-zinc-900/40 border border-zinc-800/60">
-              <div className="text-2xl sm:text-3xl font-bold font-mono text-purple-400 mb-1">
-                PR #48
-              </div>
-              <div className="text-xs text-zinc-400">
-                Merged Next.js App Router Contribution
-              </div>
-            </div>
-
-            <div className="p-3 rounded-xl bg-zinc-900/40 border border-zinc-800/60">
-              <div className="text-2xl sm:text-3xl font-bold font-mono text-rose-400 mb-1">
-                26+
-              </div>
-              <div className="text-xs text-zinc-400">
-                Public Repositories &amp; Agent Tooling
-              </div>
-            </div>
-
-            <div className="p-3 rounded-xl bg-zinc-900/40 border border-zinc-800/60">
-              <div className="text-2xl sm:text-3xl font-bold font-mono text-emerald-400 mb-1">
-                AZ-900
-              </div>
-              <div className="text-xs text-zinc-400">
-                Microsoft Azure Cloud Certified
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
-};
+}
